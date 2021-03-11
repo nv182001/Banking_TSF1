@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+
+<h1 class="view-header">TRANSFER TO :</h1>
+
+<div class="table">
+  <table class="content-table">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Email</th>
+        <th>Credits</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    
+
+      <% for(let unselected of users){ %> <%
+      if(!user._id.equals(unselected._id)){ %>
+      <tr>
+        <td>To <%= unselected.name %></td>
+        <td><%= unselected.email%></td>
+        <td><%= unselected.credits%></td>
+        <td>
+          <button class="select-btn transfer">
+            <a href="/view/<%= user._id %>/<%= unselected._id %>">Transfer</a>
+          </button>
+        </td>
+      </tr>
+      <% }}%>
+    </tbody>
+  </table>
+</div>
+
+<%- include("partials/footer") %>
