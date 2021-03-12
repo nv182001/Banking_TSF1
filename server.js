@@ -109,7 +109,10 @@ app.get("/history", async (req, res) => {
 });
 
 if (process.env.NODE_ENV==='production') {
-  app.use(express.static('/build'))
+  app.use(express.static('/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname,'build','index.html'));
+  })
 }
 app.listen(PORT, function () {
   console.log("server is running");
